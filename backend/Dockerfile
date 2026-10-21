@@ -11,8 +11,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Después el código
 COPY . .
 
-# Puerto donde escucha la API
+# Puerto donde escucha la API (Render inyecta $PORT, en local usa 8000)
 EXPOSE 8000
 
-# Arranca el servidor Uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Arranca el servidor Uvicorn.
+# Se usa sh -c para respetar la variable $PORT que asigna Render.
+# En local $PORT no existe y usa 8000. No cambia el uso con docker compose.
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]

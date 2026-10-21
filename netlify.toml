@@ -1,0 +1,9 @@
+# Netlify (Actividad 7 - frontend estático).
+# Uso opción A (recomendada): app.netlify.com > Add new site > Import from Git > este repo.
+#   Base directory: (vacío) / Publish directory: frontend / Build command: (vacío).
+# Antes de desplegar, crear frontend/config.js a mano con:
+#   window.__BACKEND_URL__ = "https://TU-BACKEND.onrender.com";
+# Uso opción B (demo rápida): arrastrar la carpeta frontend/
+# (ya con config.js creado) a https://app.netlify.com/drop
+[build]
+  publish = "frontend/"

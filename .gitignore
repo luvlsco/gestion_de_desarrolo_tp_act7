@@ -1,6 +1,9 @@
 # Claves reales: nunca se suben al repo (se comparte .env.example)
 .env
 
+# URL real del backend en la nube (se comparte config.example.js)
+frontend/config.js
+
 # Archivos que genera Python
 __pycache__/
 *.pyc

@@ -1,0 +1,21 @@
+# Blueprint para Render (Actividad 7 - CD).
+# Uso: Dashboard Render > New > Blueprint > conectar este repo.
+# Render detecta este archivo y crea el Web Service solo.
+# La DB va en Aiven (no en Render, porque el Postgres free expira en 30 días).
+services:
+  - type: web
+    name: tienda-backend
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true # CD: cada push a main redespliega solo
+    envVars:
+      - key: DATABASE_URL
+        sync: false # pegar URI de Aiven en el dashboard
+      - key: SENTRY_DSN
+        sync: false # pegar DSN de Sentry en el dashboard
+      - key: ENVIRONMENT
+        value: production
+      - key: PORT
+        value: 8000

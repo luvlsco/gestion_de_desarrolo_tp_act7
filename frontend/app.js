@@ -1,5 +1,10 @@
-// Todas las llamadas pasan por Nginx (/api), que las reenvía a FastAPI
-const API = "/api";
+// En local/Docker el frontend va por Nginx (/api -> backend:8000).
+// En la nube (Netlify/GitHub Pages) no hay Nginx, hay que apuntar
+// a la URL pública del backend en Render.
+// Cómo usarlo: crear frontend/config.js con:
+//   window.__BACKEND_URL__ = "https://tu-backend.onrender.com";
+// Si ese archivo no existe, se usa "/api" (comportamiento original).
+const API = (window.__BACKEND_URL__ || "/api").replace(/\/$/, "");
 
 // Mensaje de bienvenida con el nombre del usuario 1
 async function cargarBienvenida() {
