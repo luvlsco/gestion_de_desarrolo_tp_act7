@@ -1,8 +1,8 @@
 # Claves reales: nunca se suben al repo (se comparte .env.example)
 .env
 
-# URL real del backend en la nube (se comparte config.example.js)
-frontend/config.js
+# frontend/config.js SÍ se sube: contiene solo la URL pública del backend (no es secreta)
+# y permite CD del front en Netlify conectado al repo.
 
 # Archivos que genera Python
 __pycache__/
