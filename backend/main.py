@@ -96,3 +96,4 @@ def obtener_usuario(usuario_id: int):
     if fila is None:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     return dict(fila)
+# test auto jue 22 oct 2026 08:27:00 -03
